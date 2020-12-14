@@ -17,8 +17,7 @@ class CollectionList extends Component {
   render() {
     return (
       <Container>
-        <Row>
-          <ListGroup horizontal>
+          <ListGroup>
             {this.props.categories.map((category) => (
               <ListGroupItem 
               onClick={()=>this.selectCategory(category)} 
@@ -30,7 +29,6 @@ class CollectionList extends Component {
               </ListGroupItem>
             ))}
           </ListGroup>
-        </Row>
       </Container>
     );
   }

@@ -19,12 +19,10 @@ class App extends Component {
   render() { 
     return (
     <Container>
-      <Row>
       <Header></Header>
-      </Row>
-      <Row>
+      <Container>
         <BestCollections></BestCollections>
-      </Row>
+      </Container>
     </Container>
   );
   }
