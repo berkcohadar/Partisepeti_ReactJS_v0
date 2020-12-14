@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import BestCollections from '../BestCollections/BestCollections';
 import {Container} from "reactstrap";
 import Header from "../Navi/Header";
-import '../../App.css';
+import BaseRouter from '../../routes';
+
 //import {alertify} from "alertifyjs";
-class App extends Component {
+export default class App extends Component {
 
   // componentDidCatch(){   //render ardından ilk çağırılan statik js methodudur.
   //   this.getAPIRequest();
@@ -20,23 +21,15 @@ class App extends Component {
   render() { 
     return (
     <Container>
+      <BaseRouter></BaseRouter>
       
-      <Header></Header>
+      {/* <Header></Header>
       
       <Container>
         <BestCollections></BestCollections>
-      </Container>
+      </Container> */}
     </Container>
   );
   }
 }
 
-
-
-function mapStateToProps(state){
-  return {
-      data:state.exampleActionReducer
-  }
-};
-
-export default connect(mapStateToProps)(App);

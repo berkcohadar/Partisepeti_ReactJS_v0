@@ -24,11 +24,20 @@ class ProductList extends Component {
     // this.props.actions.getProducts()
   }
   contentStyle = {
-    height: "370px",
+    margin:"20px",
+    height: "%100",
     color: "#fff",
     lineHeight: "10px",
     textAlign: "center",
     background: "#fff",
+  };
+  carouselStyle = {
+    height: "520px",
+    background : "black",
+    color: "#fff",
+    lineHeight: "10px",
+    textAlign: "center",
+    // background: "#fff",
   };
   p = {
     display: "none",
@@ -40,7 +49,7 @@ class ProductList extends Component {
   render() {
     return (
       <Container>
-        <Carousel autoplay>
+        <Carousel style={this.carouselStyle} autoplay>
           {this.props.products.map((product, index) => (
             <div>
               <p style={this.p}> {(this.state.counter = index)} </p>
@@ -60,7 +69,7 @@ class ProductList extends Component {
                       >
                         <CardImg
                           top
-                          width="100%"
+                          width="%100"
                           src={
                             this.props.products[this.state.counter].thumbnail
                           }
