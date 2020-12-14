@@ -1,6 +1,5 @@
 //aksiyon tiplerinin tanımlamaları burada yapılacak
-export const GET_MENU_ITEMS_SUCCESS="GET_MENU_ITEMS_SUCCESS"     
-
+export const EXAMPLE_ACTION="EXAMPLE_ACTION"     
 
 export const CHANGE_CATEGORY="CHANGE_CATEGORY"
 

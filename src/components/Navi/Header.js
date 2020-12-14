@@ -4,8 +4,6 @@ import { Container, Row} from "reactstrap";
 import { bindActionCreators } from "redux";
 import * as categoryActions from "../../redux/actions/categoryActions";
 import * as productActions from "../../redux/actions/productActions";
-import LogoArea from "./LogoArea"
-import MenuBar from "./MenuBar"
 
 class Header extends Component {
   componentDidMount() {
@@ -15,12 +13,12 @@ class Header extends Component {
   render() {
     return (
       <Container>
-          <LogoArea>
-          </LogoArea> 
-          <MenuBar>
-          </MenuBar>
-          
-       
+        <Row>
+          LOGO SEARCH USER AREA
+        </Row>
+        <Row>
+          NAVBAR
+        </Row>
       </Container>
     );
   }

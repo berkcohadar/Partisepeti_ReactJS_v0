@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import BestCollections from '../BestCollections/BestCollections';
-import {Container} from "reactstrap";
-import Header from "../Navi/Header";
-import '../../App.css';
+import {Container,Row} from "reactstrap";
+import Header from "../Navi/Header"
 //import {alertify} from "alertifyjs";
 class App extends Component {
 
@@ -20,12 +19,12 @@ class App extends Component {
   render() { 
     return (
     <Container>
-      
+      <Row>
       <Header></Header>
-      
-      <Container>
+      </Row>
+      <Row>
         <BestCollections></BestCollections>
-      </Container>
+      </Row>
     </Container>
   );
   }
