@@ -9,9 +9,9 @@ export function getProductsSuccess(products){
 
 export function getProducts(slug){
     return function(dispatch) {
-        let url="http://192.168.1.2:8000/api/products";
+        let url="http://localhost:8000/api/products";
         if (slug) { 
-            url = "http://192.168.1.2:8000/api/collections/detail/" + slug
+            url = "http://localhost:8000/api/collections/detail/" + slug
         }
         
         return fetch(url)
