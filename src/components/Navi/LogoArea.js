@@ -1,15 +1,4 @@
 import React, { Component } from 'react'
-
-export default class LogoArea extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
-}
-import React, { Component } from 'react'
 import { Col, Container, Row } from 'reactstrap'
 
 import { Image,Input,Button } from 'antd';
