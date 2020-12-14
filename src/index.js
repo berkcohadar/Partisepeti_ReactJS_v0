@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/root/App';
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'antd/dist/antd.css';
+
 // import {BrowserRouter,Route,Switch} from "react-router-dom";
 
 // Redux store 
