@@ -1,9 +1,9 @@
+
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import BestCollections from '../BestCollections/BestCollections';
 import {Container} from "reactstrap";
-import Header from "../Navi/Header";
 import BaseRouter from '../../routes';
+import Foot from '../Footer/Foot';
+import Header from '../Navi/Header';
 
 //import {alertify} from "alertifyjs";
 export default class App extends Component {
@@ -20,16 +20,16 @@ export default class App extends Component {
 
   render() { 
     return (
-    <Container>
+    <div>
+      <Header></Header>
       <BaseRouter></BaseRouter>
-      
       {/* <Header></Header>
       
       <Container>
         <BestCollections></BestCollections>
       </Container> */}
-    </Container>
-  );
-  }
+      <Foot></Foot>
+    </div>
+  );}
 }
 

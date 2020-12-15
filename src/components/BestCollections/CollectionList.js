@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container, Row, ListGroup, ListGroupItem } from "reactstrap";
+import { Container, ListGroup, ListGroupItem } from "reactstrap";
 import { bindActionCreators } from "redux";
 import * as categoryActions from "../../redux/actions/categoryActions";
 import * as productActions from "../../redux/actions/productActions";

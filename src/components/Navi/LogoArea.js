@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Col, Container, Row } from 'reactstrap'
 
-import { Image,Input,Button } from 'antd';
+import { Input } from 'antd';
 import { Menu } from 'antd';
 import {  UserOutlined,HeartFilled, ShoppingCartOutlined } from '@ant-design/icons';
 
