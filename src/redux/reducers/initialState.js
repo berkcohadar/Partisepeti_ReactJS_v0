@@ -3,10 +3,10 @@ export default {
     categories:[],
     products:[],
     menuItems : [
-      {tabId:1,title:'Yılbaşı',id:'1',slug:'yilbasi',url:'#',submenus:
+      {tabId:1,title:'Yılbaşı',id:'1',slug:'yilbasi',url:'/collections/ylbas',submenus:
         [
           {title:'Yılbaşı Ağacı',id:'2',slug:'yilbasi-agaci',url:'#',submenus:[
-            {title:'Ağaçlar',id:'3',slug:'yilbasi-agaclar',url:'#'},
+            {title:'Ağaçlar',id:'3',slug:'yilbasi-agaclar',url:'/collections/ylbas'},
             {title:'Ağaç Süsleri',id:'4',slug:'yilbasi-agac-susleri',url:'#'},
             ]},
           {title:'Eğlence',id:'5',slug:'eglence',url:'#',submenus:[

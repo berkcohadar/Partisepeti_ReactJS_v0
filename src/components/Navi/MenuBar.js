@@ -24,22 +24,23 @@ class MenuBar extends Component {
                     <SubMenu
                     key={category.tabId}
                     title={category.title}
-                    >  
+                    
+                    > <a href={category.url}></a>
                         {category.submenus.map((submenu)=> ( 
                         <Menu.ItemGroup title={submenu.title}>
                             {submenu.submenus.map((submini)=>( 
-                                <Menu.Item key={submini.slug}>{submini.title}</Menu.Item>
+                                <Menu.Item  key={submini.slug}><a href={submini.url}>{submini.title}</a></Menu.Item>
                             ))}
                         </Menu.ItemGroup>
                     ))}
 
-                    </SubMenu>
+                    </SubMenu> 
                     : 
                     <Menu.Item key={category.tabId} >
                         <a href={category.url} rel="noopener noreferrer">
                         {category.title}
                     </a>
-                </Menu.Item>
+                  </Menu.Item>
                 ))}
                 
             </Menu>

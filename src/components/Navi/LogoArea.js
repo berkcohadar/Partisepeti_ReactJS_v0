@@ -24,11 +24,13 @@ export default class LogoArea extends Component {
            <Container className="themed-container header" fluid={true}>
                <Row>
                     <Col md="3">
-                    <img
+                    <a href="/"><img
                         width={250}
                         src="https://www.partisepeti.com/static/assets/img/logo.png"
                         alt="partisepeti"
+                        
                         />
+                    </a>
                     </Col>
                     <Col className="searchContainer" md="6">
                     <Input placeholder="Ürün ara" className="onSearch" onPressEnter={onSearch}  bordered={false} style={{ width: 430 }} />
