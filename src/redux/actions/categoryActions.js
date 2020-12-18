@@ -12,7 +12,7 @@ export function getCategoriesSuccess(categories){
 
 export function getCategories(){
     return function(dispatch) {
-        let url="http://localhost:8000/api/collections";
+        let url="http://192.168.1.2:8000/api/collections";
         return fetch(url)
         .then(response=> response.json())
         .then(result=> dispatch(getCategoriesSuccess(result)));

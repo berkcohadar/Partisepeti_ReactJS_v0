@@ -32,5 +32,6 @@ export default {
       {tabId:4,title:'Parti',id:'1',slug:'parti',url:'#',submenus:null},
       {tabId:5,title:'Yetişkin',id:'1',slug:'yetiskin',url:'#',submenus:null},
       {tabId:6,title:'Kek & Kurabiye',id:'1',slug:'kek-kurabiye',url:'#',submenus:null},
-    ]
+    ],
+    cart:[]
 }
