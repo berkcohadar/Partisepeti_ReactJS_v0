@@ -38,7 +38,7 @@ export default function cartReducer(state=initialState.cart,action) {
             return removeAll
 
         case actionTypes.GET_CART:
-            return action.payload
+            return state;
         default:
             return state;
     }

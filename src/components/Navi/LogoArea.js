@@ -2,19 +2,45 @@ import React, { Component, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Input, Menu, Drawer, Button,Table,Badge } from "antd";
+import { Input, Menu, Drawer, Button,Table,Form, Checkbox } from "antd";
 import {
   UserOutlined,
   HeartFilled,
   ShoppingCartOutlined,
   CloseOutlined,
   MinusCircleOutlined,
+  DeleteOutlined,
+  PlusCircleOutlined,
 } from "@ant-design/icons";
 import * as cartActions from "../../redux/actions/cartAction";
 
 
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
+
+const layout = {
+  labelCol: {
+    span: 8,
+  },
+  wrapperCol: {
+    span: 16,
+  },};
+const tailLayout = {
+  wrapperCol: {
+    offset: 8,
+    span: 16,
+  },
+};
+
+const Demo = () => {
+  const onFinish = (values) => {
+    console.log('Success:', values);
+  };
+
+const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };}
+
 
 class LogoArea extends Component {
   componentDidMount = () => {
@@ -32,27 +58,62 @@ class LogoArea extends Component {
   checkState= () => {
       return (this.state.visible)
   }
-  emptyCart= () => {
-    return (<p>Sepetiniz Bos</p>)
-  }
+  showChildrenDrawer = () => {
+    this.setState({
+      childrenDrawer: true,
+    });
+  };
+
+  onChildrenDrawerClose = () => {
+    this.setState({
+      childrenDrawer: false,
+    });
+  };
+  // emptyCart= () => {
+  //   return (<p>Sepetiniz Bos</p>)
+  // }
   columns = [
     { title: 'Ürün', dataIndex: 'name', key: 'name' },
-    { title: 'Adet', dataIndex: 'quantity', key: 'quantity' },
-    { title: 'Fiyat', dataIndex: 'price', key: 'price' },
-    { title: 'Toplam', dataIndex: 'productTotal', key: 'productTotal'},
     {
-      title: 'Action',
+      title: '',
       dataIndex: 'removeProduct',
       key: 'remove1Product',
       render: (product) => <MinusCircleOutlined onClick={()=>this.props.actions.remove1FromCart({product})}/>,
     },
+    { title: 'Adet', dataIndex: 'quantity', key: 'quantity' },
     {
-      title: 'Action',
+      title: '',
+      dataIndex: 'removeProduct',
+      key: 'remove1Product',
+      render: (product) => <PlusCircleOutlined onClick={()=>this.addToCart({product})}/>,
+    },
+    { title: 'Fiyat', dataIndex: 'price', key: 'price' },
+    { title: 'Toplam', dataIndex: 'productTotal', key: 'productTotal'}, 
+    {
+      title: '',
       dataIndex: 'removeProduct',
       key: 'removeAllProducts',
-      render: (product) => <MinusCircleOutlined onClick={()=>this.props.actions.removeAllFromCart(product)}/>,
+      render: (product) => <DeleteOutlined onClick={()=>this.props.actions.removeAllFromCart(product)}/>,
     },
   ];
+  totalPrice = () =>{
+    const data = this.data();
+    let totalPrice = 0;
+    data.map(product=>(
+      totalPrice += product.productTotal
+    ));
+    return totalPrice;
+  };
+
+  addToCart = (product) => {
+    // placement,
+    this.props.actions.addProductToCart(product);
+    // notification.success({
+    //   message: `Ürününüz sepete başarıyla eklendi. ${placement}`,
+    //   duration:2.5,
+    //   placement,
+    // });
+  };
   data = () => {
     const data = [];
     let item;
@@ -126,7 +187,7 @@ class LogoArea extends Component {
           </Col>
         </Row>
         <Drawer
-                  title="Basic Drawer"
+                  title="Sepetim"
                   placement="right"
                   width={720}
                   closable={true}
@@ -138,15 +199,67 @@ class LogoArea extends Component {
                   columns={this.columns}
                   dataSource={this.data()}
                   bordered
-                  title={() => 'Sepetim'}
-                  footer={() => 'Toplam Fiyat:\t'}
+                  
+                  footer={() => 'Toplam Fiyat:\t'+this.totalPrice()}
                 />
-               {
-                 this.props.cart.length>0?this.props.cart.map(cartItem=>(
-                  <p>{cartItem.quantity} {cartItem.product.__str__} ₺{cartItem.product.price}.00</p>
-               )):this.emptyCart()
-               }
+                <Button className="btn-add-adress" type="primary" onClick={this.showChildrenDrawer}>
+                  Adres Ekle
+                </Button>
+                <Drawer
+                  title="Two-level Drawer"
+                  width={600}
+                  closable={false}
+                  onClose={this.onChildrenDrawerClose}
+                  visible={this.state.childrenDrawer}
+                >
+                  <Form
+                    {...layout}
+                    name="basic"
+                    initialValues={{
+                      remember: true,
+                    }}
+                    onFinish={Demo.onFinish}
+                    onFinishFailed={Demo.onFinishFailed}
+                  >
+                    <Form.Item
+                      label="Username"
+                      name="username"
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Please input your username!',
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
 
+                    <Form.Item
+                      label="Password"
+                      name="password"
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Please input your password!',
+                        },
+                      ]}
+                    >
+                      <Input.Password />
+                    </Form.Item>
+
+                    <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+                      <Checkbox>Remember me</Checkbox>
+                    </Form.Item>
+
+                    <Form.Item {...tailLayout}>
+                      <Button type="primary" htmlType="submit">
+                        Submit
+                      </Button>
+                    </Form.Item>
+                  </Form>
+                </Drawer>
+
+                 
                 </Drawer>
       </Container>
     );
@@ -155,7 +268,8 @@ class LogoArea extends Component {
 
 function mapStateToProps(state) {
   return {
-    cart : state.cartReducer
+    cart : state.cartReducer,
+    
   };
 }
 
@@ -163,6 +277,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       getCart    : bindActionCreators(cartActions.getCart, dispatch),
+      addProductToCart  : bindActionCreators(cartActions.addProductToCart, dispatch),
       remove1FromCart : bindActionCreators(cartActions.remove1ProductFromCart,dispatch),
       removeAllFromCart : bindActionCreators(cartActions.removeAllFromCart,dispatch)
 
