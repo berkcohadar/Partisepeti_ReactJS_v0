@@ -4,6 +4,7 @@ import {Container} from "reactstrap";
 import BaseRouter from '../../routes';
 import Foot from '../Footer/Foot';
 import Header from '../Navi/Header';
+import MainCampaign from '../Navi/MainCampaign';
 
 //import {alertify} from "alertifyjs";
 export default class App extends Component {
@@ -21,6 +22,7 @@ export default class App extends Component {
   render() { 
     return (
     <div>
+      <MainCampaign></MainCampaign>
       <Header></Header>
       <BaseRouter></BaseRouter>
       {/* <Header></Header>

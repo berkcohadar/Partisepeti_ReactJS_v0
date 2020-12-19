@@ -4,9 +4,10 @@ import { bindActionCreators } from "redux";
 import * as productActions from "../../redux/actions/productActions";
 import * as cartActions from "../../redux/actions/cartAction";
 
-import { Card, Typography,Button,notification,Space,Image,Rate } from "antd";
+import { Card, Typography,Button,notification,Space,Image,Rate,Avatar } from "antd";
 import {
-  ShoppingCartOutlined
+  ShoppingCartOutlined,
+  HeartOutlined,
 } from "@ant-design/icons";
 import { Container, Row, Col } from "reactstrap";
 import Hoc from "../root/Hoc";
@@ -36,13 +37,14 @@ class ProductsInCollection extends Component {
           <Hoc>
               {product.variants.map(variant=>(
               <Col xs="3">
+              
               <Card
                 hoverable
                 style={{width: 240}}
-                cover={ <Image width={240} src={variant.thumbnail}/> }
+                cover={ <Image width={240} src={variant.thumbnail}/>  }
                 className="collection"
-                
               >
+              
                 <Meta
                   title={variant.__str__}
                 />
@@ -50,11 +52,14 @@ class ProductsInCollection extends Component {
                 <Rate className="prod-star" disabled defaultValue={3} />
                 
                 <Row className="prod-row justify-content-md-end">
-                  <Col>
+                  <Col >
                 <Title level={5}>₺{variant.price},00</Title>
                 </Col>
                 <Col>
+                <Row className="justify-content-end">
+                  <HeartOutlined className="add-to-cart"/>
                   <ShoppingCartOutlined className="add-to-cart" onClick={() => this.addToCart('',variant)}/>
+                  </Row>
                 </Col>
                 </Row>
               </Card>
