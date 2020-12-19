@@ -1,12 +1,10 @@
-import { Menu } from 'antd';
+import { Menu,Affix } from 'antd';
 import { Component } from 'react';
 import { Row } from 'reactstrap';
 import { connect } from "react-redux";
 
 const { SubMenu } = Menu;
-
 class MenuBar extends Component {
-   
   state = {
     current: "",};
 
@@ -17,7 +15,9 @@ class MenuBar extends Component {
   render() {
     const { current } = this.state;
     return (
-        <Row className="justify-content-md-center navbox">
+      <Affix offsetTop={0} className="navbox">
+      <div className="menubar-container">
+        <Row className="justify-content-md-center">
             <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
                 {this.props.menuItems.map((category) => (
                     category.submenus !== null ? 
@@ -45,6 +45,8 @@ class MenuBar extends Component {
                 
             </Menu>
         </Row>
+        </div>
+        </Affix>
     );
   }
 }

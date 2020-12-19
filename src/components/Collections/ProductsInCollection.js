@@ -11,6 +11,7 @@ import {
 } from "@ant-design/icons";
 import { Container, Row, Col } from "reactstrap";
 import Hoc from "../root/Hoc";
+import ProdFilter from "./ProdFilter";
 
 
 const { Meta } = Card;
@@ -32,7 +33,15 @@ class ProductsInCollection extends Component {
   
   render() {
     return (
-      <Container>
+      <Container className="product-app">
+      <Container className="product-app-container">
+      <Container className="prod-rslt">
+
+      <Container className="filter-cont" >
+        <ProdFilter></ProdFilter>
+      </Container>
+      
+      <Container className="prod-table">
         <Row>{this.props.products.map(product => (
           <Hoc>
               {product.variants.map(variant=>(
@@ -40,8 +49,8 @@ class ProductsInCollection extends Component {
               
               <Card
                 hoverable
-                style={{width: 240}}
-                cover={ <Image width={240} src={variant.thumbnail}/>  }
+                style={{width: 200}}
+                cover={ <Image width={200} src={variant.thumbnail}/>  }
                 className="collection"
               >
               
@@ -68,6 +77,9 @@ class ProductsInCollection extends Component {
           </Hoc>
         ))}
         </Row>
+      </Container>
+      </Container>
+      </Container>
       </Container>
     );
   }

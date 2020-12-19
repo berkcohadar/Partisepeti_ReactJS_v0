@@ -5,6 +5,7 @@ import BaseRouter from '../../routes';
 import Foot from '../Footer/Foot';
 import Header from '../Navi/Header';
 import MainCampaign from '../Navi/MainCampaign';
+import MenuBar from '../Navi/MenuBar';
 
 //import {alertify} from "alertifyjs";
 export default class App extends Component {
@@ -24,6 +25,7 @@ export default class App extends Component {
     <div>
       <MainCampaign></MainCampaign>
       <Header></Header>
+      <MenuBar></MenuBar>
       <BaseRouter></BaseRouter>
       {/* <Header></Header>
       

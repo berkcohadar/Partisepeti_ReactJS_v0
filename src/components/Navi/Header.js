@@ -17,8 +17,8 @@ class Header extends Component {
       <Container>
           <LogoArea>
           </LogoArea> 
-          <MenuBar>
-          </MenuBar>
+          {/* <MenuBar>
+          </MenuBar> */}
           
        
       </Container>
