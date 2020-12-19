@@ -49,16 +49,14 @@ a:hover
 
 .collection{
   margin-top: 50px;
-  margin-bottom: 20px;
+  align-items: center;
+  
 
 }
 .collection img{
-  width: 220px;
-  padding: 5px 0px 5px 0px ;
-  height: 220px;
   border:none;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 .prod-row{
   margin-top: 20px;
@@ -124,4 +122,32 @@ a:hover
 }
 .btn-add-adress{
   margin-top: 20px;
+}
+.prod-star{
+  margin-top: 5px;
+}
+.prod-star svg{
+  width: 80%;
+}
+.add-to-cart{
+  font-size: x-large;
+  margin-left: 50px;
+  color:  rgb(187, 70, 70);
+  position: relative;
+  display: block;
+  opacity: 0.7;
+  transition: 0.3s;
+  /* transition: transform .3s;  */
+
+
+}
+.add-to-cart:hover{
+  opacity: 1; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.add-to-cart>svg{
+  transition: transform .3s;
+}
+
+.add-to-cart>svg:hover{
+  transform: scale(1.1);
 }

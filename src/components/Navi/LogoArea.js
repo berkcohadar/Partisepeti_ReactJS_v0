@@ -1,45 +1,23 @@
-import React, { Component, useState } from "react";
+import React, { Component} from "react";
 import { Col, Container, Row } from "reactstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Input, Menu, Drawer, Button,Table,Form, Checkbox,Badge,Select } from "antd";
+import { Input, Menu, Drawer, Button} from "antd";
 import {
   UserOutlined,
   HeartFilled,
   ShoppingCartOutlined,
   CloseOutlined,
-  MinusCircleOutlined,
-  DeleteOutlined,
-  PlusCircleOutlined,
 } from "@ant-design/icons";
 import * as cartActions from "../../redux/actions/cartAction";
+
+import Cart from "./Cart";
+import NaviForm from "./NaviForm";
 
 
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
 
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
-
-const Demo = () => {
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
-
-const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };}
 
 
 class LogoArea extends Component {
@@ -72,39 +50,6 @@ class LogoArea extends Component {
   // emptyCart= () => {
   //   return (<p>Sepetiniz Bos</p>)
   // }
-  columns = [
-    { title: 'Ürün', dataIndex: 'name', key: 'name' },
-    {
-      title: '',
-      dataIndex: 'removeProduct',
-      key: 'remove1Product',
-      render: (product) => <MinusCircleOutlined onClick={()=>this.props.actions.remove1FromCart({product})}/>,
-    },
-    { title: 'Adet', dataIndex: 'quantity', key: 'quantity' },
-    {
-      title: '',
-      dataIndex: 'removeProduct',
-      key: 'remove1Product',
-      render: (product) => <PlusCircleOutlined onClick={()=>this.addToCart({product})}/>,
-    },
-    { title: 'Fiyat', dataIndex: 'price', key: 'price' },
-    { title: 'Toplam', dataIndex: 'productTotal', key: 'productTotal'}, 
-    {
-      title: '',
-      dataIndex: 'removeProduct',
-      key: 'removeAllProducts',
-      render: (product) => <DeleteOutlined onClick={()=>this.props.actions.removeAllFromCart(product)}/>,
-    },
-  ];
-  totalPrice = () =>{
-    const data = this.data();
-    let totalPrice = 0;
-    data.map(product=>(
-      totalPrice += product.productTotal
-    ));
-    return totalPrice;
-  };
-
   addToCart = (product) => {
     // placement,
     this.props.actions.addProductToCart(product);
@@ -114,22 +59,7 @@ class LogoArea extends Component {
     //   placement,
     // });
   };
-  data = () => {
-    const data = [];
-    let item;
-    this.props.cart.map(cartItem=>(
-      item = {
-        key:cartItem.product.id,
-        name:cartItem.product.__str__,
-        quantity:cartItem.quantity,
-        price:cartItem.product.price,
-        productTotal:cartItem.product.price*cartItem.quantity,
-        removeProduct:cartItem.product
-      },
-      data.push(item)
-    ));
-    return data;
-  }
+
   state = {
     current: null,
     visible:false,
@@ -187,174 +117,28 @@ class LogoArea extends Component {
         <Drawer
                   title="Sepetim"
                   placement="right"
-                  width={720}
+                  width={800}
                   closable={true}
                   closeIcon={<CloseOutlined/>}
                   onClose={()=>this.onClose()}
                   visible={this.state.visible}
                 >
-                <Table
-                  columns={this.columns}
-                  dataSource={this.data()}
-                  bordered
-                  
-                  footer={() => 'Toplam Fiyat:\t'+this.totalPrice()}
-                />
+                <Cart/>
+
                 <Button className="btn-add-adress" type="primary" onClick={this.showChildrenDrawer}>
                   Adres Ekle
                 </Button>
-                <a onClick={this.showChildrenDrawer}>Adres Ekle</a>
+                {/* <a onClick={this.showChildrenDrawer}></a> */}
                 <Drawer
                   title="Adres Ekle"
-                  width={600}
+                  width={700}
                   closable={true}
                   onClose={this.onChildrenDrawerClose}
                   visible={this.state.childrenDrawer}
                 >
-                  <Form
-                    {...layout}
-                    name="basic"
-                    initialValues={{
-                      remember: true,
-                    }}
-                    onFinish={Demo.onFinish}
-                    onFinishFailed={Demo.onFinishFailed}
-                  >
-                  <Row>
-                    <Col>
-                    <Form.Item
-                      label="Ad-Soyad"
-                      name="nameSurname"
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Lütfen mailinizi giriniz.',
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                    </Col>
-                    <Col>
-                    <Form.Item
-                      label="Email"
-                      name="email"
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Lütfen isim ve soyisminizi giriniz.',
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                    </Col>
-                    </Row>
-                    <Row>
-                    <Col>
-                    <Form.Item
-                      label="Şehir"
-                      name="city"
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Sehrinizi giriniz.',
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                    </Col>
-                      <Col>
 
-                    <Form.Item
-                      label="Posta Kodu"
-                      name="postcode"
-
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Semtinizi giriniz.',
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                    </Col>
-                    </Row>
-
-                    <Row>
-                    <Col>
-                    <Form.Item
-                      label="Semt"
-                      name="district"
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Sehrinizi giriniz.',
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                    </Col>
-                      <Col>
-
-                    <Form.Item
-                      label="Mahalle"
-                      name="district"
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Semtinizi giriniz.',
-                        },
-                      ]}
-                    >
-                      <Input />
-                    </Form.Item>
-                    </Col>
-                    </Row>
-                    <Row>
-                    <Col>
-                    <Form.Item
-                      label="Cep"
-                      name="district"
-                     
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Semtinizi giriniz.',
-                        },
-                      ]}
-                    >
-                      <Input  placeholder="(5xx-xxx-xxxx)" />
-                    </Form.Item>
-                    </Col>
-                    <Col>
-                    <Form.Item
-                      label="Adres"
-                      name="adress"
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Lütfen adresinizi giriniz.',
-                        },
-                      ]}
-                    >
-                      <Input.TextArea />
-                    </Form.Item></Col>
-                    </Row>
-
-                    <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                      <Checkbox>Remember me</Checkbox>
-                    </Form.Item>
-
-                    <Form.Item {...tailLayout}>
-                      <Button type="primary" htmlType="submit">
-                        Submit
-                      </Button>
-                    </Form.Item>
-                  </Form>
+                 <NaviForm/>
+                
                 </Drawer>
 
                  
