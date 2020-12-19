@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Input, Menu, Drawer, Button,Table,Form, Checkbox } from "antd";
+import { Input, Menu, Drawer, Button,Table,Form, Checkbox,Badge,Select } from "antd";
 import {
   UserOutlined,
   HeartFilled,
@@ -174,14 +174,12 @@ class LogoArea extends Component {
                 <Menu.Item key="user" icon={<UserOutlined />}></Menu.Item>
 
                 <Menu.Item key="heart" icon={<HeartFilled />}></Menu.Item>
-
+                {/* <Badge dot count={5}> */}
                 <Menu.Item
                   key="shop"
                   icon={<ShoppingCartOutlined />}
                   onClick={()=>this.showDrawer()}
-                >
-                  {" "}
-                </Menu.Item>
+                />
               </Menu>
             </Row>
           </Col>
@@ -205,10 +203,11 @@ class LogoArea extends Component {
                 <Button className="btn-add-adress" type="primary" onClick={this.showChildrenDrawer}>
                   Adres Ekle
                 </Button>
+                <a onClick={this.showChildrenDrawer}>Adres Ekle</a>
                 <Drawer
-                  title="Two-level Drawer"
+                  title="Adres Ekle"
                   width={600}
-                  closable={false}
+                  closable={true}
                   onClose={this.onChildrenDrawerClose}
                   visible={this.state.childrenDrawer}
                 >
@@ -221,31 +220,130 @@ class LogoArea extends Component {
                     onFinish={Demo.onFinish}
                     onFinishFailed={Demo.onFinishFailed}
                   >
+                  <Row>
+                    <Col>
                     <Form.Item
-                      label="Username"
-                      name="username"
+                      label="Ad-Soyad"
+                      name="nameSurname"
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your username!',
+                          message: 'Lütfen mailinizi giriniz.',
                         },
                       ]}
                     >
                       <Input />
                     </Form.Item>
-
+                    </Col>
+                    <Col>
                     <Form.Item
-                      label="Password"
-                      name="password"
+                      label="Email"
+                      name="email"
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your password!',
+                          message: 'Lütfen isim ve soyisminizi giriniz.',
                         },
                       ]}
                     >
-                      <Input.Password />
+                      <Input />
                     </Form.Item>
+                    </Col>
+                    </Row>
+                    <Row>
+                    <Col>
+                    <Form.Item
+                      label="Şehir"
+                      name="city"
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Sehrinizi giriniz.',
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                    </Col>
+                      <Col>
+
+                    <Form.Item
+                      label="Posta Kodu"
+                      name="postcode"
+
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Semtinizi giriniz.',
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                    </Col>
+                    </Row>
+
+                    <Row>
+                    <Col>
+                    <Form.Item
+                      label="Semt"
+                      name="district"
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Sehrinizi giriniz.',
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                    </Col>
+                      <Col>
+
+                    <Form.Item
+                      label="Mahalle"
+                      name="district"
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Semtinizi giriniz.',
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                    </Col>
+                    </Row>
+                    <Row>
+                    <Col>
+                    <Form.Item
+                      label="Cep"
+                      name="district"
+                     
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Semtinizi giriniz.',
+                        },
+                      ]}
+                    >
+                      <Input  placeholder="(5xx-xxx-xxxx)" />
+                    </Form.Item>
+                    </Col>
+                    <Col>
+                    <Form.Item
+                      label="Adres"
+                      name="adress"
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Lütfen adresinizi giriniz.',
+                        },
+                      ]}
+                    >
+                      <Input.TextArea />
+                    </Form.Item></Col>
+                    </Row>
 
                     <Form.Item {...tailLayout} name="remember" valuePropName="checked">
                       <Checkbox>Remember me</Checkbox>
