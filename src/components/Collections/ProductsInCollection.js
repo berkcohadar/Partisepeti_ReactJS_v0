@@ -54,7 +54,7 @@ class ProductsInCollection extends Component {
                 <Title level={5}>₺{variant.price},00</Title>
                 </Col>
                 <Col>
-                  <div><ShoppingCartOutlined className="add-to-cart" onClick={() => this.addToCart('',variant)}/></div> 
+                  <ShoppingCartOutlined className="add-to-cart" onClick={() => this.addToCart('',variant)}/>
                 </Col>
                 </Row>
               </Card>
