@@ -1,170 +1,104 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  Container,
-  Card,
-  Button,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardDeck,
-  CardSubtitle,
-  CardBody,
-  CardGroup,
-  Col,
-  Row,
-} from "reactstrap";
+import { Container, CardDeck, Col, Row } from "reactstrap";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { bindActionCreators } from "redux";
 import * as productActions from "../../redux/actions/productActions";
+import * as cartActions from "../../redux/actions/cartAction";
 
-import { Carousel } from "antd";
+import { Card, Rate, Typography, Image, notification } from "antd";
+import {
+  ShoppingCartOutlined,
+  HeartOutlined,
+  LeftOutlined,
+  RightOutlined,
+} from "@ant-design/icons";
+import Hoc from "../root/Hoc";
+
+const { Meta } = Card;
+const { Title } = Typography;
 
 class ProductList extends Component {
-  componentDidMount() {
-    // this.props.actions.getProducts()
-  }
-  contentStyle = {
-    margin:"20px",
-    height: "%100",
-    color: "#fff",
-    lineHeight: "10px",
-    textAlign: "center",
-    background: "#fff",
+  responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 3, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
   };
-  carouselStyle = {
-    height: "520px",
-    background : "black",
-    color: "#fff",
-    lineHeight: "10px",
-    textAlign: "center",
-    // background: "#fff",
+  addToCart = (placement, product) => {
+    this.props.actions.addProductToCart({ quantity: 1, product });
+    notification.success({
+      message: `Ürününüz sepete başarıyla eklendi. ${placement}`,
+      duration: 2.5,
+      placement,
+    });
   };
-  p = {
-    display: "none",
-  };
-  state = {
-    counter: 0,
-  };
-  increment = () => (this.counter += 1);
   render() {
     return (
-      <Container>
-        <Carousel style={this.carouselStyle} autoplay>
-          {this.props.products.map((product, index) => (
+      <Carousel
+        swipeable={false}
+        draggable={false}
+        showDots={true}
+        responsive={this.responsive}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        autoPlay={this.props.deviceType !== "mobile" ? true : false}
+        autoPlaySpeed={3000}
+        keyBoardControl={true}
+        customTransition="all .5"
+        transitionDuration={1000}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        deviceType={this.props.deviceType}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+        // customLeftArrow= {<LeftOutlined />}
+        // customRightArrow= {<RightOutlined />}
+      >
+        {this.props.products.map((product) =>
+          product.variants.map((variant) => (
             <div>
-              <p style={this.p}> {(this.state.counter = index)} </p>
-              <p style={this.p}>
-                {" "}
-                {this.state.counter === 0
-                  ? null
-                  : (this.state.counter += 2)}{" "}
-              </p>
-              <CardDeck>
-                <Row>
-                  {this.props.products[this.state.counter] ? (
-                    <Col xs="4">
-                      <Card
-                        key={this.props.products[this.state.counter].id}
-                        style={this.contentStyle}
-                      >
-                        <CardImg
-                          top
-                          width="%100"
-                          src={
-                            this.props.products[this.state.counter].thumbnail
-                          }
-                          alt="Card image cap"
-                        />
-                        <CardBody>
-                          <CardTitle tag="h5">
-                            {this.props.products[this.state.counter].name}
-                          </CardTitle>
-                          <CardSubtitle tag="h6" className="mb-2 text-muted">
-                            ₺
-                            {
-                              this.props.products[this.state.counter]
-                                .variants[0].price
-                            }
-                            .00
-                          </CardSubtitle>
-                          <CardText>{/* {product.description} */}</CardText>
-                          <Button color="success">Sepete Ekle</Button>
-                        </CardBody>
-                      </Card>
-                    </Col>
-                  ) : null}
-                  <p style={this.p}> {(this.state.counter += 1)} </p>
-                  {this.props.products[this.state.counter] ? (
-                    <Col xs="4">
-                      <Card
-                        key={this.props.products[this.state.counter].id}
-                        style={this.contentStyle}
-                      >
-                        <CardImg
-                          top
-                          width="100%"
-                          src={
-                            this.props.products[this.state.counter].thumbnail
-                          }
-                          alt="Card image cap"
-                        />
-                        <CardBody>
-                          <CardTitle tag="h5">
-                            {this.props.products[this.state.counter].name}
-                          </CardTitle>
-                          <CardSubtitle tag="h6" className="mb-2 text-muted">
-                            ₺
-                            {
-                              this.props.products[this.state.counter]
-                                .variants[0].price
-                            }
-                            .00
-                          </CardSubtitle>
-                          <CardText>{/* {product.description} */}</CardText>
-                          <Button color="success">Sepete Ekle</Button>
-                        </CardBody>
-                      </Card>
-                    </Col>
-                  ) : null}
-                  <p style={this.p}> {(this.state.counter += 1)} </p>
-                  {this.props.products[this.state.counter] ? (
-                    <Col xs="4">
-                      <Card
-                        key={this.props.products[this.state.counter].id}
-                        style={this.contentStyle}
-                      >
-                        <CardImg
-                          top
-                          width="100%"
-                          src={
-                            this.props.products[this.state.counter].thumbnail
-                          }
-                          alt="Card image cap"
-                        />
-                        <CardBody>
-                          <CardTitle tag="h5">
-                            {this.props.products[this.state.counter].name}
-                          </CardTitle>
-                          <CardSubtitle tag="h6" className="mb-2 text-muted">
-                            ₺
-                            {
-                              this.props.products[this.state.counter]
-                                .variants[0].price
-                            }
-                            .00
-                          </CardSubtitle>
-                          <CardText>{/* {product.description} */}</CardText>
-                          <Button color="success">Sepete Ekle</Button>
-                        </CardBody>
-                      </Card>
-                    </Col>
-                  ) : null}
+              <Card
+                hoverable
+                style={{ width: 200 }}
+                cover={<Image width={200} src={variant.thumbnail} />}
+                className="collection"
+              >
+                <Meta title={variant.__str__} />
+
+                <Rate className="prod-star" disabled defaultValue={3} />
+
+                <Row className="prod-row justify-content-md-end">
+                  <Col>
+                    <Title level={5}>₺{variant.price},00</Title>
+                  </Col>
+                  <Col>
+                    <Row className="justify-content-end">
+                      <HeartOutlined className="add-to-cart" />
+                      <ShoppingCartOutlined
+                        className="add-to-cart"
+                        onClick={() => this.addToCart("", variant)}
+                      />
+                    </Row>
+                  </Col>
                 </Row>
-              </CardDeck>
+              </Card>
             </div>
-          ))}
-        </Carousel>
-      </Container>
+          ))
+        )}
+      </Carousel>
     );
   }
 }
@@ -173,6 +107,7 @@ function mapStateToProps(state) {
   return {
     currentCategory: state.changeCategoryReducer,
     products: state.productListReducer,
+    cart: state.cartReducer,
   };
 }
 
@@ -180,6 +115,11 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       getProducts: bindActionCreators(productActions.getProducts, dispatch),
+      addProductToCart: bindActionCreators(
+        cartActions.addProductToCart,
+        dispatch
+      ),
+      getCart: bindActionCreators(cartActions.getCart, dispatch),
     },
   };
 }

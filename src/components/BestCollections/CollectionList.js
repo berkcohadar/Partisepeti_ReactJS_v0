@@ -4,31 +4,33 @@ import { Container, ListGroup, ListGroupItem } from "reactstrap";
 import { bindActionCreators } from "redux";
 import * as categoryActions from "../../redux/actions/categoryActions";
 import * as productActions from "../../redux/actions/productActions";
-
+import { Menu, Button } from "antd";
 
 class CollectionList extends Component {
   componentDidMount() {
     this.props.actions.getCategories();
+    // this.selectCategory(this.props.categories[0]);
   }
   selectCategory = (category) => {
     this.props.actions.changeCategory(category);
-    this.props.actions.getProducts(category.slug)
+    this.props.actions.getProducts(category.slug);
   };
+
   render() {
     return (
       <Container>
-          <ListGroup>
-            {this.props.categories.map((category) => (
-              <ListGroupItem 
-              onClick={()=>this.selectCategory(category)} 
-              tag="a" 
+        <Menu mode="inline" theme="light" className="best-collections-menu">
+          {this.props.categories.map((category) => (
+            <Menu.Item
+              key={category.id}
+              onClick={() => this.selectCategory(category)}
+              href="#"
               active={category.id === this.props.currentCategory.id}
-              key={category.id} 
-              href="#">
-                {category.name}
-              </ListGroupItem>
-            ))}
-          </ListGroup>
+            >
+              {category.name}
+            </Menu.Item>
+          ))}
+        </Menu>
       </Container>
     );
   }
@@ -48,11 +50,11 @@ function mapDispatchToProps(dispatch) {
         categoryActions.getCategories,
         dispatch
       ),
-      changeCategory:  bindActionCreators(
+      changeCategory: bindActionCreators(
         categoryActions.changeCategory,
         dispatch
       ),
-      getProducts : bindActionCreators(productActions.getProducts,dispatch),
+      getProducts: bindActionCreators(productActions.getProducts, dispatch),
     },
   };
 }

@@ -1,8 +1,8 @@
-textarea:hover, 
-input:hover, 
-textarea:active, 
-input:active, 
-textarea:focus, 
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
 input:focus,
 button:focus,
 button:active,
@@ -10,66 +10,64 @@ button:hover,
 label:focus,
 .btn:active,
 .btn.active,
-a:hover
-{
-    outline:0px !important;
-    -webkit-appearance:none;
-    box-shadow: none !important;
+a:hover {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+  color: #000 !important;
 }
 
 .App {
   margin-top: 30px;
 
   text-align: center;
-  
 }
-.header{
+.header {
   margin-top: 0px;
   margin-bottom: 30px;
 }
-.searchContainer{
+.searchContainer {
   padding-top: 15px !important;
 }
-.onSearch{
+.onSearch {
   border-bottom: 0.07rem solid rgb(240, 240, 240) !important;
   border-radius: 0px !important;
 }
-.menubar-container{
+.menubar-container {
   background-color: #ffffff;
 }
-.navbox{
+.navbox {
   margin-top: 30px;
-
 }
 .ant-menu {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
   font-size: 16px !important;
   font-weight: 40px;
-  
 }
 
-.ant-menu:hover{
+.ant-menu:hover {
   color: black !important;
 }
 
-.collection{
+.collection {
   margin-bottom: 7px;
   align-items: center;
 }
-.collection img{
-  border:none;
+.collection img {
+  border: none;
   margin-right: auto;
   margin-left: auto;
 }
-.prod-row{
+.prod-row {
   margin-top: 20px;
 }
 
-
-.footer{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+.footer {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
   background-color: #e4e4e4;
-  display: block!important;
+  display: block !important;
   margin-top: 430px;
   height: 515px;
 }
@@ -81,88 +79,78 @@ a:hover
   width: 1080px;
   box-sizing: border-box;
 }
-.footer_list{
+.footer_list {
   font-size: 16px;
   color: #222;
   padding: 30px;
   padding-left: 40px;
 }
-.footer_item_text{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+.footer_item_text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
   color: #222;
   font-size: 14px;
   border-bottom: 1px solid #e4e4e4 !important;
 }
-.footer_item_text:hover{
-  border-bottom: 1px solid black!important;
+.footer_item_text:hover {
+  border-bottom: 1px solid black !important;
 }
-.footer-copyright{
+.footer-copyright {
   background-color: black;
-  display: block!important;
+  display: block !important;
   width: 100%;
 }
 
 .site-button-ghost-wrapper {
-  color: rgb(0, 0, 0)!important;
+  color: rgb(0, 0, 0) !important;
   border-color: black;
 }
 .site-button-ghost-wrapper:hover {
-  color: white!important;
+  color: white !important;
 }
-.site-button-ghost-wrapper::selection{
+.site-button-ghost-wrapper::selection {
   color: rgb(33, 107, 30);
 }
-.ant-btn:hover{
-  color: white;
-  background-color: rgb(33, 107, 30) !important;
-  border-color:  rgb(33, 107, 30);
-}
-.ant-btn:focus{
-  border-color:  rgb(0, 0, 0);
-}
-.ant-btn>span:hover , .ant-btn>span:focus{
-  color: white;
-}
-.btn-add-adress{
+
+.btn-add-adress {
   margin-top: 20px;
 }
-.prod-star{
+.prod-star {
   margin-top: 5px;
 }
-.prod-star svg{
+.prod-star svg {
   width: 80%;
 }
-
-.add-to-cart{
+.add-to-cart {
   font-size: x-large;
   margin-right: 2px;
-  color:  rgb(187, 70, 70);
+  color: rgb(187, 70, 70);
   position: relative;
   display: block;
   opacity: 0.7;
   transition: 0.3s;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-     -moz-user-select: none; /* Old versions of Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none; /* Non-prefixed version, currently
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
   /* transition: transform .3s;  */
 }
 
-.add-to-cart:hover{
-  opacity: 1; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.add-to-cart:hover {
+  opacity: 1;
 }
-.add-to-cart>svg{
-  transition: transform .3s;
+.add-to-cart > svg {
+  transition: transform 0.3s;
 }
 
-.add-to-cart>svg:hover{
+.add-to-cart > svg:hover {
   transform: scale(1.3);
 }
 
-.maincampaign{
+.maincampaign {
   margin-top: 0px !important;
   background-color: #fa8c8c;
   height: 35px;
@@ -171,60 +159,136 @@ a:hover
   transition: 0.3s;
 }
 
-.maincampaign:hover{
-  opacity: 1; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.maincampaign:hover {
+  opacity: 1;
 }
 
-.maincampaign>p{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
-  color:white;
+.maincampaign > p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+  color: white;
   margin: auto;
-  padding:auto;
-
+  padding: auto;
 }
 
-
-.product-app{
+.product-app {
   width: 1200px;
   margin: 0 auto;
 }
-.product-app-container{
+.product-app-container {
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.prod-rslt{
+.prod-rslt {
   display: flex;
   margin-top: 15px;
 }
-.filter-cont{
+.filter-cont {
   width: 220px;
   margin-right: 10px;
   visibility: visible;
 }
-#sticky{
+#sticky {
   padding-top: 20px;
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
 }
 
-.filter-elem-list{
-  display: block!important;
+.filter-elem-list {
+  display: block !important;
   margin-top: 60px;
 }
 
-.prod-table{
+.prod-table {
   width: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
-.fltrs-wrppr{
+.fltrs-wrppr {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 185px;
   margin: 15px 0 0 0;
+}
+
+.header-icon {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.header-icon:hover {
+  border-color: #000 !important;
+  color: #000 !important;
+  opacity: 1;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+  color: #000;
+  border-bottom: 2px solid #fff;
+}
+
+.ant-menu-submenu-title {
+  opacity: 0.8;
+  transition: 0.3s;
+  color: #000 !important;
+  border-bottom: 2px solid #fff;
+}
+
+.ant-menu-submenu-title:hover {
+  color: #000 !important;
+  border-bottom: 2px solid #000;
+  opacity: 1;
+}
+.radioStyle {
+  display: "block";
+  height: "30px";
+  line-height: "30px";
+  width: 185px;
+  margin: 15px 0 0 0;
+}
+
+.cart-divs {
+  margin-left: 80px !important;
+}
+
+.go-to-payment {
+  background-color: rgb(104, 145, 195) !important;
+  border-color: #6891c3;
+}
+.go-to-payment span {
+  color: white;
+}
+.go-to-payment:hover {
+  background-color: rgb(55, 96, 146) !important;
+  border-color: rgb(55, 96, 146);
+}
+.go-to-payment:focus {
+  border-color: rgb(0, 0, 0);
+}
+.carousel-container{
+  height: 450px !important;
+}
+.carousel-item-padding-40-px{
+  padding-left: 37px !important;
+}
+.best-collections-menu{
+  margin-top: 60px !important;
+}
+.best-collections-menu::selection{
+  color: #000000;
+}
+.ant-menu-item-selected {
+  color: #000000;
 }
