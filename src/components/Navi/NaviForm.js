@@ -113,7 +113,7 @@ export default class NaviForm extends Component {
               rules={[
                 {
                   required: true,
-                  message: "Sehrinizi giriniz.",
+                  message: "Semtinizi giriniz.",
                 },
               ]}
             >
@@ -123,11 +123,11 @@ export default class NaviForm extends Component {
           <Col>
             <Form.Item
               label="Mahalle"
-              name="district"
+              name="neighborhood"
               rules={[
                 {
                   required: true,
-                  message: "Semtinizi giriniz.",
+                  message: "Mahallenizi giriniz.",
                 },
               ]}
             >
@@ -139,11 +139,11 @@ export default class NaviForm extends Component {
           <Col>
             <Form.Item
               label="Cep"
-              name="district"
+              name="phone"
               rules={[
                 {
                   required: true,
-                  message: "Semtinizi giriniz.",
+                  message: "Telefon Numaranizi giriniz.",
                 },
               ]}
             >

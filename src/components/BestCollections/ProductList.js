@@ -48,17 +48,17 @@ class ProductList extends Component {
   render() {
     return (
       <Carousel
-        swipeable={false}
-        draggable={false}
-        showDots={true}
+        swipeable={true}
+        draggable={true}
+        showDots={false}
         responsive={this.responsive}
         ssr={true} // means to render carousel on server-side.
         infinite={true}
-        autoPlay={this.props.deviceType !== "mobile" ? true : false}
+        autoPlay={true}
         autoPlaySpeed={3000}
         keyBoardControl={true}
         customTransition="all .5"
-        transitionDuration={1000}
+        transitionDuration={300}
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
         deviceType={this.props.deviceType}
@@ -66,7 +66,11 @@ class ProductList extends Component {
         itemClass="carousel-item-padding-40-px"
         // customLeftArrow= {<LeftOutlined />}
         // customRightArrow= {<RightOutlined />}
+        renderArrowsOutside={true}
+        arrows={true}
+        infinite={true}
       >
+
         {this.props.products.map((product) =>
           product.variants.map((variant) => (
             <div>
