@@ -1,144 +1,65 @@
-import React from 'react'
+import React, { Component } from "react";
 
-function NavigationMenu() {
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+
+import * as menuActions from "../../redux/actions/menuActions";
+
+class NavigationMenu extends Component {
+
+    componentDidMount(){
+        this.props.actions.getMenu();
+        console.log(this.props.menuItems)
+    }
+
+    render(){
     return (
         <div class="wrapper">
             <div class="mega_menu container">
 		    <ul>
-                <li>
-                    <a href="/">yılbaşı</a>
-                    <div class="sub_menu">
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="/">Kek & Kurabiye</a>
-                    <div class="sub_menu">
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="/">Erkek</a>
-                    <div class="sub_menu">
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="/">Kadın</a>
-                    <div class="sub_menu">
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                        <div class="col">
-                            <p>football is unconditional love</p>
-                        </div>
-                    </div>
-                </li>
+                {this.props.menuItems.map(item=>(
+                    <li>
+                        <a href={item.url}>{item.title}</a>
+                        {item.submenus.length !== 0 ? 
+                        <div class="sub_menu">
+                            {item.submenus.map(submenu=>(
+                                <div class="col">
+                                    <a href={submenu.url}>{submenu.title}</a>
+                                    {submenu.submenus.map(submini => (
+                                        <p>{submini.title}</p>
+                                    ))}
+                                </div>
+                            ))}
+                        </div> 
+                        : 
+                        <div>
 
-                <li><a href="/">Parti</a>
-				<div class="sub_menu">
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-				</div></li>
-                <li><a href="/">Parti</a>
-				<div class="sub_menu">
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-				</div></li>
-                <li><a href="/">Parti</a>
-				<div class="sub_menu">
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-				</div></li>
-                <li><a href="/">Parti</a>
-				<div class="sub_menu">
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-					<div class="col">
-						<h4>The best way to predict the future is to invent it.</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quibusdam ipsum dicta commodi, ipsa praesentium laboriosam sit quos rem molestias illo, nisi labore deleniti officiis doloremque perferendis laborum cupiditate totam.</p>
-					</div>
-				</div></li>
-			
+                        </div>
+                        }
+                    </li>
+                ))}
             </ul>
             </div>
             </div>            
-    )
+    );
+}
 }
 
-export default NavigationMenu
+
+function mapStateToProps(state) {
+    return {
+      menuItems: state.menuListReducer,
+      categories: state.categoryListReducer,
+    };
+  }
+  
+  function mapDispatchToProps(dispatch) {
+    return {
+      actions: {
+        getMenu: bindActionCreators(menuActions.getMenuItems, dispatch),
+      },
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(NavigationMenu);
+  

@@ -6,11 +6,6 @@ import {Navbar} from '../../components';
 
 import BaseRouter from '../../routes';
 import Foot from '../Footer/Foot';
-// import Header from '../Navi/Header';
-import MainCampaign from '../Navbar/MainCampaign';
-// import MenuBar from '../Navi/MenuBar';
-
-//import {alertify} from "alertifyjs";
 export default class App extends Component {
 
 
@@ -19,8 +14,7 @@ export default class App extends Component {
     <Router>
       <GlobalStyle/>
       <Navbar/>
-      {/* <Header></Header>
-      <MenuBar></MenuBar> */}
+
       <BaseRouter></BaseRouter>
 
       <Foot></Foot>

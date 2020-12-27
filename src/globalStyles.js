@@ -48,20 +48,6 @@ a:hover {
 .menubar-container {
   background-color: #ffffff;
 }
-.navbox {
-  margin-top: 30px;
-}
-.ant-menu {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 40px;
-}
-
-.ant-menu:hover {
-  color: black !important;
-}
-
 .collection {
   margin-bottom: 7px;
   align-items: center;
@@ -79,16 +65,21 @@ a:hover {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
   background-color: #e4e4e4;
-  display: block !important;
+  display: flex;
   margin-top: 430px;
   height: 515px;
+  
+  @media screen and (max-width:960px){
+    display:none;
+}
+  
 }
 .footer__wrapper {
   padding-top: 50px;
   padding-bottom: 55px;
   display: flex;
   justify-content: space-between;
-  width: 1080px;
+  width: 100%;
   box-sizing: border-box;
 }
 .footer_list {
@@ -229,6 +220,7 @@ a:hover {
 .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
   color: #000;
   border-bottom: 2px solid #fff;
+  
 }
 
 .ant-menu-submenu-title {
@@ -236,12 +228,14 @@ a:hover {
   transition: 0.3s;
   color: #000 !important;
   border-bottom: 2px solid #fff;
+  
 }
 
 .ant-menu-submenu-title:hover {
   color: #000 !important;
   border-bottom: 2px solid #000;
   opacity: 1;
+  
 }
 .radioStyle {
   display: "block";
@@ -249,6 +243,7 @@ a:hover {
   line-height: "30px";
   width: 185px;
   margin: 15px 0 0 0;
+  
 }
 
 .cart-divs {
@@ -285,12 +280,14 @@ a:hover {
 .react-multi-carousel-item {
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  
 }
 .ant-menu-item-selected {
   color: #000000;
 }
 .ant-scrolling-effect{
   overflow: scroll !important;
+
 }
 .react-multiple-carousel__arrow{
   padding: 20px 0px 20px 0px;
@@ -321,9 +318,7 @@ a:hover {
   opacity: 0.85;
   transition: 0.3s;
   display: flex;
-  @media screen and (max-width:960px){
-    display:none;
-}
+
 }
 
 .maincampaign:hover {
@@ -356,6 +351,8 @@ a:hover {
     margin-top:10px;
     width: 100%;
     display:block;
+    position: relative;
+    z-index: 99999999;
     @media screen and (max-width:960px){
     display:none;
 }
@@ -405,16 +402,16 @@ a:hover {
 
 .mega_menu ul li .sub_menu{
     margin-top:2px;
-	position: absolute;
-	background: white;
-	width: 100%;
+    position: absolute;
+    background: white;
+    width: 100%;
     left: 0;
     max-width:1400px;
-	top: 60px;
-	padding: 25px 15px;
-	display: flex;
-	justify-content: space-around;
-	visibility: hidden;
+    top: 60px;
+    padding: 25px 15px;
+    display: flex;
+    justify-content: space-around;
+    visibility: hidden;
     line-height: 24px;
     box-shadow: 0 27px 24px 0 rgba(0,0,0,0.2), 0 40px 77px 0 rgba(0,0,0,0.22);
 }
@@ -429,7 +426,7 @@ a:hover {
 }
 
 .mega_menu ul li:hover .sub_menu{
-	visibility: visible;
+  visibility: visible;
 }
 
 .mega_menu ul li .sub_menu .col img{
@@ -455,7 +452,13 @@ a:hover {
 .iconsContainer{
     margin-top:20px;
 }
-
+.campaing-container{
+    overflow-x:hidden;
+    display: block;
+    @media screen and (max-width:960px){
+        display:none;
+    }
+}
 `;
 
 export const Container = styled.div`

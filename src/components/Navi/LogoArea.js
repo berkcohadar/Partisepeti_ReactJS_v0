@@ -11,8 +11,8 @@ import {
 } from "@ant-design/icons";
 import * as cartActions from "../../redux/actions/cartAction";
 
-import Cart from "./Cart";
-import NaviForm from "./NaviForm";
+// import Cart from "./Cart";
+import NaviForm from "../Navi/NaviForm";
 
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
@@ -95,7 +95,7 @@ class LogoArea extends Component {
           onClose={() => this.onClose()}
           visible={this.state.visible}
         >
-          <Cart />
+          {/* <Cart /> */}
 
           <div className="filter-elem-list">
             <div className="fltrs-wrppr">

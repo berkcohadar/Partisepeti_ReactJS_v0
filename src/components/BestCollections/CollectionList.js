@@ -9,6 +9,7 @@ import { Menu, Button } from "antd";
 class CollectionList extends Component {
   componentDidMount() {
     this.props.actions.getCategories();
+    // console.log(this.props.categories);
     // this.selectCategory(this.props.categories[0]);
   }
   selectCategory = (category) => {
