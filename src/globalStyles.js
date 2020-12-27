@@ -1,3 +1,15 @@
+import styled,{createGlobalStyle} from 'styled-components'
+
+import { Input } from 'antd';
+import {primaryColor,primaryHover} from "./globalColors";
+
+const GlobalStyle = createGlobalStyle`
+*{
+    box-sizing:border-box;
+    margin: 0;
+    padding:0;
+    font-family:'Source Sans Pro',sans-serif;
+}
 textarea:hover,
 input:hover,
 textarea:active,
@@ -16,7 +28,7 @@ a:hover {
   box-shadow: none !important;
   color: #000 !important;
 }
-
+//eskiler
 .App {
   margin-top: 30px;
 
@@ -150,26 +162,6 @@ a:hover {
   transform: scale(1.3);
 }
 
-.maincampaign {
-  margin-top: 0px !important;
-  background-color: #fa8c8c;
-  height: 35px;
-  margin-bottom: 5px;
-  opacity: 0.85;
-  transition: 0.3s;
-}
-
-.maincampaign:hover {
-  opacity: 1;
-}
-
-.maincampaign > p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
-  color: white;
-  margin: auto;
-  padding: auto;
-}
 
 .product-app {
   width: 1200px;
@@ -318,3 +310,214 @@ a:hover {
 .react-multiple-carousel__arrow--right{
   right: calc(4% - 40px);
 }
+
+
+// yeniler
+.maincampaign {
+  margin-top: 0px !important;
+  background-color: #fa8c8c;
+  height: 35px;
+  margin-bottom: 5px;
+  opacity: 0.85;
+  transition: 0.3s;
+  display: flex;
+  @media screen and (max-width:960px){
+    display:none;
+}
+}
+
+.maincampaign:hover {
+  opacity: 1;
+}
+
+.maincampaign > p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+  color: white;
+  margin: auto;
+  padding: auto;
+}
+
+.mobile-nav{
+    background-color:purple;
+}
+.navMenu{
+    margin-top:10px;
+    /* background-color:grey; */
+}
+.nav-button{
+    border: 0px solid transparent;
+    &:hover{
+        color: black;
+    }
+}
+
+.wrapper{
+    margin-top:10px;
+    width: 100%;
+    display:block;
+    @media screen and (max-width:960px){
+    display:none;
+}
+}
+
+.mega_menu{
+	width: 100%;
+	height: 60px;
+}
+
+
+
+.mega_menu ul{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height: 59px;
+    position: relative;
+    
+    
+}
+
+.mega_menu ul li{
+	display: inline-block;
+	margin: 0 8px;
+    padding: 0 5px;
+
+}
+
+
+.mega_menu ul li a{
+	text-decoration: none;
+	color: black;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-size: 12px;
+    display: block;
+   
+    
+}
+
+.wrapper .banner_img img{
+	width: 100%;
+	height: 500px;
+}
+
+.mega_menu ul li .sub_menu{
+    margin-top:2px;
+	position: absolute;
+	background: white;
+	width: 100%;
+    left: 0;
+    max-width:1400px;
+	top: 60px;
+	padding: 25px 15px;
+	display: flex;
+	justify-content: space-around;
+	visibility: hidden;
+    line-height: 24px;
+    box-shadow: 0 27px 24px 0 rgba(0,0,0,0.2), 0 40px 77px 0 rgba(0,0,0,0.22);
+}
+
+/* 
+.mega_menu ul li:hover{
+} */
+
+.mega_menu ul li:hover a{
+    border-bottom:1px solid black;
+    color: #ca914e;
+}
+
+.mega_menu ul li:hover .sub_menu{
+	visibility: visible;
+}
+
+.mega_menu ul li .sub_menu .col img{
+	width: 250px;
+	height: 180px;
+	display: block;
+}
+
+.mega_menu ul li .sub_menu p{
+	color: black;
+	margin-top: 15px;
+	font-size: 14px;
+}
+
+.mega_menu ul li .sub_menu h4{
+	color: #ca914e;
+}
+.searchContainer{
+    max-width:300px;
+    width:100%;
+    margin-top:20px;
+}
+.iconsContainer{
+    margin-top:20px;
+}
+
+`;
+
+export const Container = styled.div`
+z-index:1;
+width: 100%;
+max-width:1300px;
+margin-right:auto;
+margin-left:auto;
+padding-right:50px;
+padding-left:50px;
+
+@media screen and (max-width:991px){
+    padding-right:30px;
+    padding-left:30;
+}
+
+`;
+
+
+export const myButton = styled.button`
+border-radius: 4px;
+background: ${({primary}) => (primary ? primaryColor : '#0467FB')};
+white-space:nowrap;
+padding:${({big})=> (big ? '12px 64px' : '10px 20px')};
+color : black;
+font-size: ${({fontBig}) => (fontBig ? '20px' : '16px')};
+outline:none;
+border:none;
+cursor:pointer;
+
+&:hover{
+    transition: all 0.3s ease-out;
+    background: #0467fb;
+
+    background: ${({primary}) => (primary ? primaryHover : '#4b59f7')};
+}
+@media screen and (max-width:960px){
+    width: 100%;
+
+}
+`
+
+export const Search = styled(Input)`
+color:black;
+    display:flex;
+    align-items:center;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    height:100%;
+
+    @media screen and (max-width:960px){
+        text-align: center;
+        padding:2rem;
+        width:100%;
+        display:table;
+
+        &:hover{
+            color:#4b59f7;
+            transition:all 0.3 ease;
+        }
+    }
+`
+
+
+export default GlobalStyle;
