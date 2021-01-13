@@ -25,9 +25,9 @@ export default function cartReducer(state = initialState.cart, action) {
           return cartItem;
         });
         return remove1State;
-      } else if (item.quantity == 1) {
+      } else {
         const newState_removeLast = state.filter(
-          (cartItem) => cartItem.product.id !== action.payload.id
+          (cartItem) => cartItem.product.id !== action.payload.product.id
         );
         return newState_removeLast;
       }
@@ -36,7 +36,6 @@ export default function cartReducer(state = initialState.cart, action) {
         (cartItem) => cartItem.product.id !== action.payload.id
       );
       return removeAll;
-
     case actionTypes.GET_CART:
       return state;
     default:
