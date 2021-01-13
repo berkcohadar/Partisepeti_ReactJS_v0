@@ -251,3 +251,28 @@ display:block;
 }
 
 `
+
+export const SubmenuLink = styled(Link)`
+    color:grey !important;
+    display:flex !important;
+    align-items:center ;
+    text-decoration: none ;
+    padding: 0.5rem 1rem;
+    height:100% !important;
+    letter-spacing:0px;
+    &:hover{
+        color:grey;
+        text-decoration:none;
+    }
+    @media screen and (max-width:960px){
+        text-align: center;
+        padding:2rem;
+        width:100%;
+        display:table;
+
+        &:hover{
+            color:grey;
+            transition:all 0.3 ease;
+        }
+    }
+`

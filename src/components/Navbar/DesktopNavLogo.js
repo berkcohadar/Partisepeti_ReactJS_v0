@@ -11,7 +11,8 @@ import {
     CloseOutlined,
   } from "@ant-design/icons";
 import * as cartActions from "../../redux/actions/cartAction";
-import NaviForm from "../Navi/NaviForm"
+import NaviForm from "../Navi/NaviForm";
+import Cart from "./Cart";
 
 class DesktopNavLogo extends Component {
   showDrawer = () => this.setState({ visible: true });
@@ -88,7 +89,10 @@ class DesktopNavLogo extends Component {
             closeIcon={<CloseOutlined />}
             onClose={() => this.onClose()}
             visible={this.state.visible}
+            className="drawer"
           >
+            <Cart>
+            </Cart>
             <div className="filter-elem-list">
               <div className="fltrs-wrppr">
                 <strong level={5}>Adreslerim</strong>
