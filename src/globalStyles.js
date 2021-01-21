@@ -201,10 +201,12 @@ a:hover {
 
 .header-icon {
   opacity: 0.8;
-  transition: 0.3s;
+  border: 0px solid;
+  transition:0.1s
 }
 
 .header-icon:hover {
+  border-bottom: 2px solid;
   border-color: #000 !important;
   color: #000 !important;
   opacity: 1;

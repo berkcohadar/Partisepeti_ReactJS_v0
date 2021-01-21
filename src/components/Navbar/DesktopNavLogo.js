@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { bindActionCreators } from "redux";
+import * as cartActions from "../../redux/actions/cartAction";
+
 import { DesktopNavLogoArea } from "./Navbar.elements";
+import NaviForm from "../Navi/NaviForm";
+import Cart from "./Cart";
+
 import { Input, Menu, Drawer, Button, Radio  } from "antd";
 import {
     UserOutlined,
@@ -10,9 +16,6 @@ import {
     ShoppingCartOutlined,
     CloseOutlined,
   } from "@ant-design/icons";
-import * as cartActions from "../../redux/actions/cartAction";
-import NaviForm from "../Navi/NaviForm";
-import Cart from "./Cart";
 
 class DesktopNavLogo extends Component {
   showDrawer = () => this.setState({ visible: true });
@@ -54,28 +57,29 @@ class DesktopNavLogo extends Component {
             <Col className="iconsContainer" md="4">
               <Row className="justify-content-md-center">
                 <Menu
-                  onClick={this.handleClick}
-                  selectedKeys={[current]}
                   mode="horizontal"
                 >
-                  <Menu.Item
+                   <Button
                     className="header-icon"
                     key="user"
                     icon={<UserOutlined />}
-                  ></Menu.Item>
+                    href="/profile"
+                  ></Button>
 
-                  <Menu.Item
+                  <Button        
                     className="header-icon"
                     key="heart"
                     icon={<HeartFilled />}
-                  ></Menu.Item>
+                    style={{marginRight:10, marginLeft:10}}
+                  ></Button>
                   {/* <Badge dot count={5}> */}
-                  <Menu.Item
+
+                  <Button
                     className="header-icon"
                     key="shop"
                     icon={<ShoppingCartOutlined />}
                     onClick={() => this.showDrawer()}
-                  />
+                  ></Button>
                 </Menu>
               </Row>
             </Col>

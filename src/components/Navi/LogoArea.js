@@ -67,6 +67,7 @@ class LogoArea extends Component {
                   className="header-icon"
                   key="user"
                   icon={<UserOutlined />}
+                  href={"/profile"}
                 ></Menu.Item>
 
                 <Menu.Item
@@ -79,7 +80,6 @@ class LogoArea extends Component {
                   className="header-icon"
                   key="shop"
                   icon={<ShoppingCartOutlined />}
-                  onClick={() => this.showDrawer()}
                 />
               </Menu>
             </Row>

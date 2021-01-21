@@ -12,3 +12,5 @@ export const ADD_TO_CART= "ADD_TO_CART" // TO CART?
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART"
 export const REMOVE_1_FROM_CART = "REMOVE_1_FROM_CART"
 export const GET_CART = "GET_CART"
+
+export const ADD_TO_FAV= "ADD_TO_FAV" // TO CART?

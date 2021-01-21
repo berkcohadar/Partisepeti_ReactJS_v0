@@ -9,7 +9,6 @@ import { SubmenuLink } from "./Navbar.elements"
 class NavigationMenu extends Component {
   componentDidMount() {
     this.props.actions.getMenu();
-    console.log(this.props.menuItems);
   }
 
   render() {
@@ -47,7 +46,6 @@ class NavigationMenu extends Component {
 class NavigationMenu2 extends Component {
   componentDidMount() {
     this.props.actions.getMenu();
-    console.log(this.props.menuItems);
   }
 
   render() {

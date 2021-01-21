@@ -4,6 +4,7 @@ import BestCollections from './components/BestCollections/BestCollections';
 import Hoc from "./components/root/Hoc";
 import Header from "./components/Navi/Header";
 import ProductsInCollection from "./components/Collections/ProductsInCollection";
+import Account from "./components/Account/Account";
 
 
 const BaseRouter = ()=>(
@@ -12,6 +13,7 @@ const BaseRouter = ()=>(
         <Route exact path="/" component={BestCollections}/>
         <Route exact path="/collections/:slug" component={ProductsInCollection}/> 
         <Route exact path="/products" component={ProductsInCollection}/> 
+        <Route exact path="/profile" component={Account}/> 
         </Switch>
         {/* :slug  --- ulaşmak için this.props.match.params.id */}
         {/* <Route path="/login" component={Login}/>

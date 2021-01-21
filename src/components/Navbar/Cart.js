@@ -29,7 +29,7 @@ class Cart extends Component {
       dataIndex: "removeProduct",
       key: "remove1Product",
       render: (product) => (
-        <MinusCircleOutlined onClick={() => this.removeFromCart(product)} />
+        <MinusCircleOutlined onClick={() => this.removeFromCart(product)} style={{color: "#B22234" }}/>
       ),
     },
     {
@@ -37,7 +37,7 @@ class Cart extends Component {
       dataIndex: "removeProduct",
       key: "remove1Product",
       render: (product) => (
-        <PlusCircleOutlined onClick={() => this.addToCart(product)} />
+        <PlusCircleOutlined onClick={() => this.addToCart(product)} style={{color: "#3C3B6E" }}/>
       ),
     },
     {
