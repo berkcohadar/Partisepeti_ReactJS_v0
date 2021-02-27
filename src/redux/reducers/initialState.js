@@ -4,5 +4,10 @@ export default {
     products:[],
     menuItems : [],
     cart:[],
-    favs:[]
+    favs:[],
+    profile:[],
+    login:[],
+    productDetail:[],
+    token:null,
+    loading:false,
 }

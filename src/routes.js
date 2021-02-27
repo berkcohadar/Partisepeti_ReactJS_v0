@@ -1,25 +1,27 @@
 import React from "react";
-import {Route,Switch} from "react-router-dom";
-import BestCollections from './components/BestCollections/BestCollections';
+import { Route, Switch } from "react-router-dom";
+import Home from "./components/root/Body/Home/Home";
 import Hoc from "./components/root/Hoc";
-import Header from "./components/Navi/Header";
-import ProductsInCollection from "./components/Collections/ProductsInCollection";
-import Account from "./components/Account/Account";
+import ProductsInCollection from "./components/root/Body/Collections/ProductsInCollection";
+import Account from "./components/root/Body/Account/Account";
+import Login from "./components/root/Body/Login/Login";
+import Logout from "./components/root/Body/Login/Logout";
+import SignUp from "./components/root/Body/Login/SignUp";
+import ProductDetail from "./components/root/Body/ProductDetail/ProductDetail"
 
-
-const BaseRouter = ()=>(
-    <Hoc>
-        <Switch>
-        <Route exact path="/" component={BestCollections}/>
-        <Route exact path="/collections/:slug" component={ProductsInCollection}/> 
-        <Route exact path="/products" component={ProductsInCollection}/> 
-        <Route exact path="/profile" component={Account}/> 
-        </Switch>
-        {/* :slug  --- ulaşmak için this.props.match.params.id */}
-        {/* <Route path="/login" component={Login}/>
-        <Route path="/signup" component={Signup}/> */}
-        {/* <Route path="/products" component={ProductList}/> */}
-    </Hoc>
+const BaseRouter = () => (
+  <Hoc>
+    <Switch >
+      <Route exact path="/" component={Home}  />
+      <Route exact path="/collections/:slug" component={ProductsInCollection} />
+      <Route exact path="/products" component={ProductsInCollection} />
+      <Route exact path="/deneme/" component={ProductDetail} />
+      <Route exact path="/profile" component={Account} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/logout" component={Logout} />
+      <Route exact path="/signup" component={SignUp} />
+    </Switch>
+  </Hoc>
 );
-
+// :slug  --- ulaşmak için this.props.match.params.id 
 export default BaseRouter;

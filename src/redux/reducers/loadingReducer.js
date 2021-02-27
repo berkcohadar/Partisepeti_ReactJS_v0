@@ -2,9 +2,11 @@ import * as actionTypes from "../actions/actionTypes";
 import initialState from "./initialState";
 
 
-export default function productListReducer(state=initialState.products,action) {
+export default function loadingReducer(state=initialState.loading,action) {
     switch (action.type) {
-        case actionTypes.GET_PRODUCTS_SUCCESS:
+        case actionTypes.LOADING_TRUE:
+            return action.payload
+        case actionTypes.LOADING_FALSE:
             return action.payload
         default:
             return state;
